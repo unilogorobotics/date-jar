@@ -4,11 +4,20 @@ import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 
 const env = import.meta.env;
 
+// Firebase web config is public by design (it ships to every browser); access is
+// controlled by firestore.rules. VITE_FIREBASE_* env vars override these defaults.
+const defaults = {
+  apiKey: 'AIzaSyD1ypDn6WOYhNIYI_3H92jCzWTuBhd81kk',
+  authDomain: 'date-jar-99346.firebaseapp.com',
+  projectId: 'date-jar-99346',
+  appId: '1:377438703979:web:395618caa5d61789a67c2e',
+};
+
 export const config = {
-  apiKey: env.VITE_FIREBASE_API_KEY,
-  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: env.VITE_FIREBASE_PROJECT_ID,
-  appId: env.VITE_FIREBASE_APP_ID,
+  apiKey: env.VITE_FIREBASE_API_KEY || defaults.apiKey,
+  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN || defaults.authDomain,
+  projectId: env.VITE_FIREBASE_PROJECT_ID || defaults.projectId,
+  appId: env.VITE_FIREBASE_APP_ID || defaults.appId,
 };
 
 export const useEmulators = env.VITE_USE_EMULATORS === 'true';

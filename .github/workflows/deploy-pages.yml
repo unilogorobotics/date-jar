@@ -27,8 +27,8 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
-          # Set these under Settings → Secrets and variables → Actions → Variables.
-          # (Firebase web config is not secret; security comes from firestore.rules.)
+          # Optional overrides (Settings → Secrets and variables → Actions → Variables).
+          # Defaults for the date-jar-99346 project live in src/firebase.js.
           VITE_FIREBASE_API_KEY: ${{ vars.FIREBASE_API_KEY }}
           VITE_FIREBASE_AUTH_DOMAIN: ${{ vars.FIREBASE_AUTH_DOMAIN }}
           VITE_FIREBASE_PROJECT_ID: ${{ vars.FIREBASE_PROJECT_ID }}

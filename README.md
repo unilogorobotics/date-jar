@@ -24,7 +24,6 @@ Stack: Vite + vanilla JS + Firebase (Auth + Firestore). There is no server to ru
 
 ```bash
 npm install
-cp .env.example .env       # paste the four values from step 1.4
 npm run dev
 ```
 
@@ -49,7 +48,7 @@ npm run deploy             # builds and deploys hosting + rules
 **Option B: GitHub Pages.** Every push to `main` deploys automatically.
 
 1. Repo **Settings → Pages → Source: GitHub Actions**.
-2. Repo **Settings → Secrets and variables → Actions → Variables**: add `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `FIREBASE_PROJECT_ID` and `FIREBASE_APP_ID`.
+2. The Firebase config for `date-jar-99346` is built into `src/firebase.js`. To point at another project, set the `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `FIREBASE_PROJECT_ID` and `FIREBASE_APP_ID` repository variables.
 3. In Firebase: **Authentication → Settings → Authorized domains → Add domain** → `<your-github-username>.github.io`.
 4. Push to `main`. The site will be at `https://<user>.github.io/date-jar/`.
 
